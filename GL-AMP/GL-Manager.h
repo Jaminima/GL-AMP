@@ -9,10 +9,17 @@
 #include <iostream>
 #include <string>
 
+#include <amp.h>
+using namespace concurrency;
+
 namespace GL {
 
 	unsigned int window_Width=0, window_Height=0;
+
 	Color* screenBuffer;
+	array_view<Color, 2> *sBufferView;
+
+	void (*renderSceneFunction)(array_view<Color, 2>*);
 
 	void DisplayFrame() {
 		glDrawPixels(window_Width, window_Height, GL_RGBA, GL_UNSIGNED_BYTE, screenBuffer);
@@ -20,7 +27,7 @@ namespace GL {
 	}
 
 	void GlutIdling() {
-
+		renderSceneFunction(sBufferView);
 	}
 
 	void InitializeWindow(int argc, char** argv, std::string title = "GL AMP", unsigned int width = 1280, unsigned int height = 720) {
@@ -28,7 +35,8 @@ namespace GL {
 		window_Width = width;
 
 		screenBuffer = new Color[window_Height * window_Width];
-
+		sBufferView = new array_view<Color, 2>(window_Height, window_Width, screenBuffer);
+			
 		glutInit(&argc, argv);
 		glutInitWindowSize(window_Width, window_Height);
 		glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
@@ -47,7 +55,8 @@ namespace GL {
 	}
 
 	void StartGL() {
-		glutMainLoop();
+		if (renderSceneFunction!=0x0)
+			glutMainLoop();
 	}
 
 };

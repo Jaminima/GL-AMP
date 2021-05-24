@@ -22,9 +22,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\GL-AMP\GL-Manager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\packages\freeglut.2.8.1.15\build\native\include\GL\freeglut.h">
       <Filter>GL</Filter>
     </ClInclude>

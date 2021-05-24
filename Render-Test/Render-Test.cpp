@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../GL-AMP/GL-Manager.h"
+#include "../GL-AMP/framework.h"
 
 int main(int argc, char** argv)
 {

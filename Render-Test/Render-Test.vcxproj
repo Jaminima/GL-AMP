@@ -147,7 +147,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\GL-AMP\GL-Manager.h" />
     <ClInclude Include="..\packages\freeglut.2.8.1.15\build\native\include\GL\freeglut.h" />
     <ClInclude Include="..\packages\freeglut.2.8.1.15\build\native\include\GL\freeglut_ext.h" />
     <ClInclude Include="..\packages\freeglut.2.8.1.15\build\native\include\GL\freeglut_std.h" />

@@ -12,6 +12,9 @@
     <Filter Include="GL">
       <UniqueIdentifier>{2830c160-f071-40eb-8be0-d3e170c4fd2f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GL\Build">
+      <UniqueIdentifier>{fbf6cad8-b9c9-4dfb-9a50-cb39f002ae2f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Render-Test.cpp">
@@ -39,22 +42,19 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <CopyFileToFolders Include="..\packages\freeglut.redist.2.8.1.15\build\native\bin\v110\x64\Release\dynamic\freeglut.dll">
-      <Filter>GL</Filter>
-    </CopyFileToFolders>
-  </ItemGroup>
-  <ItemGroup>
     <Library Include="..\packages\freeglut.2.8.1.15\build\native\lib\v110\x64\Release\static\freeglut.lib">
-      <Filter>GL</Filter>
+      <Filter>GL\Build</Filter>
     </Library>
     <Library Include="..\packages\freeglut.2.8.1.15\build\native\lib\v110\x64\Release\ltcg\freeglut.lib">
-      <Filter>GL</Filter>
+      <Filter>GL\Build</Filter>
     </Library>
     <Library Include="..\packages\freeglut.2.8.1.15\build\native\lib\v110\x64\Release\dynamic\freeglut.lib">
-      <Filter>GL</Filter>
+      <Filter>GL\Build</Filter>
     </Library>
-    <Library Include="..\x64\Release\GL-AMP.lib">
-      <Filter>Header Files</Filter>
-    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\packages\freeglut.redist.2.8.1.15\build\native\bin\v110\x64\Release\dynamic\freeglut.dll">
+      <Filter>GL\Build</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>

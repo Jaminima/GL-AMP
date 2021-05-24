@@ -12,6 +12,14 @@ namespace GL {
 
 	unsigned int window_Width=0, window_Height=0;
 
+	void DisplayFrame() {
+
+	}
+
+	void GlutIdling() {
+
+	}
+
 	void InitializeWindow(int argc, char** argv, std::string title = "GL AMP", unsigned int width = 1280, unsigned int height = 720) {
 		window_Height = height;
 		window_Width = width;
@@ -20,7 +28,20 @@ namespace GL {
 		glutInitWindowSize(window_Width, window_Height);
 		glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
 		glutCreateWindow(title.c_str());
-			
+
+		glutDisplayFunc(DisplayFrame);
+		glutIdleFunc(GlutIdling);
+	}
+
+	void SetMouseMoveFunc(void moveFunc(int,int)) {
+		glutPassiveMotionFunc(moveFunc);
+	}
+
+	void SetKeyboardFunc(void keyFunc(unsigned char, int, int)) {
+		glutKeyboardFunc(keyFunc);
+	}
+
+	void StartGL() {
 		glutMainLoop();
 	}
 

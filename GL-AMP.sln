@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GL-AMP", "GL-AMP\GL-AMP.vcxproj", "{BF079503-48DA-46B8-BE8B-716E30ED44E8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Render-Test", "Render-Test\Render-Test.vcxproj", "{7D5A20AA-2006-4653-8820-78A44B411EB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{BF079503-48DA-46B8-BE8B-716E30ED44E8}.Release|x64.Build.0 = Release|x64
 		{BF079503-48DA-46B8-BE8B-716E30ED44E8}.Release|x86.ActiveCfg = Release|Win32
 		{BF079503-48DA-46B8-BE8B-716E30ED44E8}.Release|x86.Build.0 = Release|Win32
+		{7D5A20AA-2006-4653-8820-78A44B411EB1}.Debug|x64.ActiveCfg = Debug|x64
+		{7D5A20AA-2006-4653-8820-78A44B411EB1}.Debug|x64.Build.0 = Debug|x64
+		{7D5A20AA-2006-4653-8820-78A44B411EB1}.Debug|x86.ActiveCfg = Debug|Win32
+		{7D5A20AA-2006-4653-8820-78A44B411EB1}.Debug|x86.Build.0 = Debug|Win32
+		{7D5A20AA-2006-4653-8820-78A44B411EB1}.Release|x64.ActiveCfg = Release|x64
+		{7D5A20AA-2006-4653-8820-78A44B411EB1}.Release|x64.Build.0 = Release|x64
+		{7D5A20AA-2006-4653-8820-78A44B411EB1}.Release|x86.ActiveCfg = Release|Win32
+		{7D5A20AA-2006-4653-8820-78A44B411EB1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

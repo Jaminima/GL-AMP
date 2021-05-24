@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="GL">
+      <UniqueIdentifier>{2830c160-f071-40eb-8be0-d3e170c4fd2f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Render-Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\GL-AMP\GL-Manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\packages\freeglut.2.8.1.15\build\native\include\GL\freeglut.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\packages\freeglut.2.8.1.15\build\native\include\GL\freeglut_ext.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\packages\freeglut.2.8.1.15\build\native\include\GL\freeglut_std.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\packages\freeglut.2.8.1.15\build\native\include\GL\glut.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\packages\freeglut.redist.2.8.1.15\build\native\bin\v110\x64\Release\dynamic\freeglut.dll">
+      <Filter>GL</Filter>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\packages\freeglut.2.8.1.15\build\native\lib\v110\x64\Release\static\freeglut.lib">
+      <Filter>GL</Filter>
+    </Library>
+    <Library Include="..\packages\freeglut.2.8.1.15\build\native\lib\v110\x64\Release\ltcg\freeglut.lib">
+      <Filter>GL</Filter>
+    </Library>
+    <Library Include="..\packages\freeglut.2.8.1.15\build\native\lib\v110\x64\Release\dynamic\freeglut.lib">
+      <Filter>GL</Filter>
+    </Library>
+    <Library Include="..\x64\Release\GL-AMP.lib">
+      <Filter>Header Files</Filter>
+    </Library>
+  </ItemGroup>
+</Project>

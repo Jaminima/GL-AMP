@@ -10,6 +10,10 @@ public:
 		float xyz[3];
 	};
 
+	Point() restrict(amp,cpu) {
+
+	}
+
 	Point(float _x, float _y, float _z) restrict(amp,cpu) {
 		x = _x;
 		y = _y;

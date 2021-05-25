@@ -4,6 +4,7 @@
 #define __Mesh
 
 #include "Triangle.h"
+#include "Shared.h"
 #include "Scene-Manager.h"
 
 class Mesh {
@@ -16,11 +17,17 @@ public:
 
 	}
 
-	Mesh(Triangle* triangles, int _triCount) restrict(cpu) {
+	void RegisterTriangles(Triangle* triangles, int _triCount) restrict(cpu) {
 		triCount = _triCount;
 		TriStart = TriangleViewHead;
 		TriangleViewHead += triCount;
 		TriEnd = TriangleViewHead;
+
+		for (int i = TriStart;i < TriEnd;i++) sceneTrianglesView[i] = triangles[i - TriStart];
+	}
+
+	Mesh(Triangle* triangles, int _triCount) restrict(cpu) {
+		RegisterTriangles(triangles, _triCount);
 	}
 };
 

@@ -158,8 +158,11 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GL-Manager.h" />
+    <ClInclude Include="Mesh.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="Scene-Manager.h" />
+    <ClInclude Include="Shared.h" />
     <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <ItemGroup>

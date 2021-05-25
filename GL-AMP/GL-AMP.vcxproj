@@ -159,6 +159,8 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="GL-Manager.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Point.h" />
+    <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GL-AMP.cpp" />

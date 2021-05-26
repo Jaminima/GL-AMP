@@ -34,20 +34,19 @@ namespace GL {
 	void (*renderSceneFunction)(array_view<Color, 2>*);
 
 	void DisplayFrame() {
+		if (bufferSync.valid()) bufferSync.wait();
 		glDrawPixels(window_Width, window_Height, GL_RGBA, GL_UNSIGNED_BYTE, GetReadBuffer());
 		glutSwapBuffers();
 		BufferFlip = !BufferFlip;
 	}
 
 	void GlutIdling() {
-		if (bufferSync.valid()) bufferSync.wait();
-
 		array_view<Color, 2> *buff = GetWriteBuffer();
 		renderSceneFunction(buff);
 
-		bufferSync = buff->synchronize_async();
-
 		glutPostRedisplay();
+
+		bufferSync = buff->synchronize_async();
 	}
 
 	void InitializeWindow(int argc, char** argv, std::string title = "GL AMP", unsigned int width = 1280, unsigned int height = 720) {

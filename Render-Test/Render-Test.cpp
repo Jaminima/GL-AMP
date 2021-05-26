@@ -9,8 +9,6 @@ void RenderScene(array_view<Color, 2>* sBuffer) {
             sBuf[idx].Set(idx[0]%255, idx[1]%255, (idx[0]+idx[1])%255);
         }
     );
-
-    sBuffer->synchronize();
 }
 
 int main(int argc, char** argv)

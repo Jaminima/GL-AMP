@@ -14,28 +14,50 @@ using namespace concurrency;
 
 namespace GL {
 
-	unsigned int window_Width=0, window_Height=0;
+	unsigned int window_Width=0, window_Height=0, window_Size=0;
 
 	Color* screenBuffer;
-	array_view<Color, 2> *sBufferView;
+	array_view<Color, 2> *sBuffer1View;
+	array_view<Color, 2>* sBuffer2View;
+
+	bool BufferFlip = false;
+	completion_future bufferSync;
+
+	array_view<Color, 2>* GetWriteBuffer() {
+		return BufferFlip ? sBuffer1View : sBuffer2View;
+	}
+
+	Color* GetReadBuffer() {
+		return &screenBuffer[!BufferFlip];
+	}
 
 	void (*renderSceneFunction)(array_view<Color, 2>*);
 
 	void DisplayFrame() {
-		glDrawPixels(window_Width, window_Height, GL_RGBA, GL_UNSIGNED_BYTE, screenBuffer);
+		glDrawPixels(window_Width, window_Height, GL_RGBA, GL_UNSIGNED_BYTE, GetReadBuffer());
 		glutSwapBuffers();
+		BufferFlip = !BufferFlip;
 	}
 
 	void GlutIdling() {
-		renderSceneFunction(sBufferView);
+		if (bufferSync.valid()) bufferSync.wait();
+
+		array_view<Color, 2> *buff = GetWriteBuffer();
+		renderSceneFunction(buff);
+
+		bufferSync = buff->synchronize_async();
+
+		glutPostRedisplay();
 	}
 
 	void InitializeWindow(int argc, char** argv, std::string title = "GL AMP", unsigned int width = 1280, unsigned int height = 720) {
 		window_Height = height;
 		window_Width = width;
+		window_Size = height * width;
 
-		screenBuffer = new Color[window_Height * window_Width];
-		sBufferView = new array_view<Color, 2>(window_Height, window_Width, screenBuffer);
+		screenBuffer = new Color[window_Size * 2];
+		sBuffer1View = new array_view<Color, 2>(window_Height, window_Width, &screenBuffer[0]);
+		sBuffer2View = new array_view<Color, 2>(window_Height, window_Width, &screenBuffer[window_Size]);
 			
 		glutInit(&argc, argv);
 		glutInitWindowSize(window_Width, window_Height);

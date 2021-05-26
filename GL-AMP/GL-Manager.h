@@ -30,7 +30,7 @@ namespace GL {
 	}
 
 	Color* GetReadBuffer() {
-		return &screenBuffer[!BufferFlip];
+		return &screenBuffer[!BufferFlip * window_Size];
 	}
 
 	void (*renderSceneFunction)(array_view<Color, 2>*);

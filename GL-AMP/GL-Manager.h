@@ -5,6 +5,8 @@
 
 #include "GL/freeglut.h"
 #include "GL/glut.h"
+
+#include "FPSTracker.h"
 #include "Color.h"
 #include <iostream>
 #include <string>
@@ -36,8 +38,14 @@ namespace GL {
 	void DisplayFrame() {
 		if (bufferSync.valid()) bufferSync.wait();
 		glDrawPixels(window_Width, window_Height, GL_RGBA, GL_UNSIGNED_BYTE, GetReadBuffer());
+
 		glutSwapBuffers();
 		BufferFlip = !BufferFlip;
+
+		FPS::LogFrame();
+		if (FPS::TimePassed(1000)) {
+			std::cout << "You Got " << FPS::CollectFrameCount() << " FPS\n";
+		}
 	}
 
 	void GlutIdling() {

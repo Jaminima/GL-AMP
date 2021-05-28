@@ -162,7 +162,9 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="Ray.h" />
     <ClInclude Include="Scene-Manager.h" />
+    <ClInclude Include="ScreenPos.h" />
     <ClInclude Include="Shared.h" />
     <ClInclude Include="Triangle.h" />
   </ItemGroup>

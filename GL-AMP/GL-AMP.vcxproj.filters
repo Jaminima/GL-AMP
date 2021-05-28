@@ -63,6 +63,12 @@
     <ClInclude Include="FPSTracker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Ray.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenPos.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GL-AMP.cpp">

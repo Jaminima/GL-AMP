@@ -19,17 +19,16 @@ public:
 		direction = _direction;
 	}
 
-	Ray(Point _origin, Point _destination, bool NormaliseDirection) {
+	Ray(Point _origin, Point _destination, bool NormaliseDirection) restrict(amp, cpu) {
 		origin = _origin;
 
 		direction = _destination / _origin;
 		if (NormaliseDirection) direction.normalise();
 	}
 	
-	//Assumes 
-	ScreenPos GetScreenPosition() {
-		#warning no camera rotation applied
-		return ScreenPos(direction.x*GL::window_Width, direction.y*GL::window_Height);
+	ScreenPos GetScreenPosition(unsigned int width, unsigned int height) restrict(amp, cpu) {
+		direction = direction / direction.z;
+		return ScreenPos(floorf(direction.x * width), floorf(direction.y * height));
 	}
 };
 

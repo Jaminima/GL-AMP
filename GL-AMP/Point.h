@@ -14,7 +14,7 @@ public:
 	};
 
 	Point() restrict(amp,cpu) {
-
+		x = 0;y = 0;z = 0;
 	}
 
 	Point(float _x, float _y, float _z) restrict(amp,cpu) {

@@ -4,3 +4,4 @@
 
 #include "GL-Manager.h"
 #include "Scene-Manager.h"
+#include "Ray.h"

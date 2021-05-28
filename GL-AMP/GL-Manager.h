@@ -7,6 +7,8 @@
 #include "GL/glut.h"
 
 #include "FPSTracker.h"
+#include "Triangle.h"
+#include "Shared.h"
 #include "Color.h"
 #include <iostream>
 #include <string>
@@ -20,7 +22,7 @@ namespace GL {
 
 	Color* screenBuffer;
 	array_view<Color, 2> *sBuffer1View;
-	array_view<Color, 2>* sBuffer2View;
+	array_view<Color, 2> *sBuffer2View;
 
 	bool BufferFlip = false;
 	completion_future bufferSync;
@@ -33,7 +35,7 @@ namespace GL {
 		return &screenBuffer[!BufferFlip * window_Size];
 	}
 
-	void (*renderSceneFunction)(array_view<Color, 2>*);
+	void (*renderSceneFunction)(array_view<Color, 2>*, array_view<Triangle, 1>*);
 
 	void DisplayFrame() {
 		if (bufferSync.valid()) bufferSync.wait();
@@ -50,7 +52,7 @@ namespace GL {
 
 	void GlutIdling() {
 		array_view<Color, 2> *buff = GetWriteBuffer();
-		renderSceneFunction(buff);
+		renderSceneFunction(buff, sceneTrianglesView);
 
 		glutPostRedisplay();
 

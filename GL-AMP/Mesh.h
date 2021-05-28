@@ -23,7 +23,7 @@ public:
 		TriangleViewHead += triCount;
 		TriEnd = TriangleViewHead;
 
-		for (int i = TriStart;i < TriEnd;i++) sceneTrianglesView[i] = triangles[i - TriStart];
+		for (int i = TriStart;i < TriEnd;i++) sceneTriangles[i] = triangles[i - TriStart];
 	}
 
 	Mesh(Triangle* triangles, int _triCount) restrict(cpu) {
